@@ -1,20 +1,22 @@
 package com.example.usersmanagementsystem;
 
-import com.example.usersmanagementsystem.entity.User;
-import com.example.usersmanagementsystem.repository.UsersRepository;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.CommandLineRunner;
+
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.autoconfigure.security.servlet.SecurityAutoConfiguration;
+import org.springframework.context.annotation.Bean;
+import org.springframework.security.crypto.factory.PasswordEncoderFactories;
+import org.springframework.security.crypto.password.PasswordEncoder;
 
-import java.time.LocalDate;
-import java.util.Date;
 
-@SpringBootApplication
+@SpringBootApplication(exclude = SecurityAutoConfiguration.class)
 public class UsersManagementSystemApplication {
 
     public static void main(String[] args) {
-
         SpringApplication.run(UsersManagementSystemApplication.class, args);
+    }
+    @Bean
+    public PasswordEncoder passwordEncoder() {
+        return PasswordEncoderFactories.createDelegatingPasswordEncoder();
     }
 }
