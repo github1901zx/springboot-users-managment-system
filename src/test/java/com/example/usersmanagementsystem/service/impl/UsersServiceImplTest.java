@@ -2,7 +2,6 @@ package com.example.usersmanagementsystem.service.impl;
 
 import com.example.usersmanagementsystem.entity.User;
 import com.example.usersmanagementsystem.repository.UsersRepository;
-import com.example.usersmanagementsystem.service.UsersService;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mock;
@@ -58,7 +57,6 @@ class UsersServiceImplTest {
 //        Mockito.verify(user,Mockito.times(0)).setPassword(user.getPassword());
 //        Mockito.verify(user,Mockito.times(0)).setEmail(user.getEmail());
         Mockito.verify(usersRepository,Mockito.times(0)).save(user);
-
     }
 
     @Test
